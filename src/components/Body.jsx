@@ -1,5 +1,5 @@
 import React from "react";
-import img1 from "../images/img3_top.jpg";
+import img1 from "../images/category_1.jpg";
 import "../css/body.css";
 
 const Body = () => {
