@@ -98,7 +98,21 @@ li {
   color: green;
 }
 
+.toggle_bar {
+  display: none;
+}
+
 @media screen and (max-width: 650px) {
+  .body {
+    position: relative;
+    top: 75px;
+    width: calc(100vw);
+    padding: 10px;
+    min-height: calc(100vh - 75px);
+    display: flex;
+    justify-content: center;
+    left: -10px;
+  }
   .menu_option {
     padding: 0;
   }
@@ -136,14 +150,58 @@ li {
 }
 
 @media screen and (max-width: 485px) {
+  .toggle_bar {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #ececec;
+    border-radius: 50%;
+    right: 20px;
+    flex-direction: column;
+    gap: 3px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .line {
+    width: 60%;
+    height: 2px;
+    background: #333;
+    transition: all 0.4s;
+  }
+
+  .toggle_bar.active .top {
+    position: absolute;
+    transform: rotate(45deg);
+  }
+
+  .toggle_bar.active .bot {
+    position: absolute;
+    transform: rotate(-45deg);
+  }
+
+  .toggle_bar.active .mid {
+    position: absolute;
+    transform: translateX(-50px) rotate(0deg);
+  }
+
+  .toggle_bar.active .line {
+    background: #bc6c25;
+  }
+
+  .toggle_bar.active:hover .top,
+  .toggle_bar.active:hover .bot {
+    transform: rotate(0deg);
+  }
+
   .menu_option {
     padding: 0;
     width: 100%;
     box-shadow: none;
-  }
-
-  .nav_bar {
-    justify-content: center;
+    display: none;
   }
 
   .nav_option {
@@ -155,8 +213,18 @@ li {
     top: 65px;
     width: calc(95vw);
     left: 0px;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s;
   }
 
+  .nav_option.active {
+    min-height: 150px;
+  }
+
+  .nav_option.active .menu_option {
+    display: flex;
+  }
   .text {
     position: relative;
     opacity: 1;
@@ -183,5 +251,17 @@ li {
 
   .icon {
     width: 20px;
+  }
+
+  .item {
+    width: calc(100% - 50px);
+    overflow: hidden;
+    border-radius: 5px;
+    background: #fff;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 2px 2px 5px #cfcfcf;
   }
 }
