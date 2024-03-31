@@ -1,50 +1,121 @@
-.image_container img {
-  max-width: 100%;
-  width: auto;
-  height: auto;
-  max-height: calc(100vh - 0px);
+.body {
+  position: relative;
+  top: 75px;
+  width: 100%;
+  padding: 10px;
+  min-height: calc(100vh - 75px);
+  display: flex;
+  justify-content: center;
 }
 
 .inner_body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  position: relative;
-  top: 70px;
-}
-
-.image_container {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #333;
-}
-
-.content_container {
-  position: fixed;
-  width: 100%;
+  max-width: calc(100vw);
+  min-height: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  flex-direction: column;
-  max-width: calc(100% - 20px);
-  width: 500px;
-  top: 80px;
-  right: 10px;
   padding: 10px;
-  background: #3333336a;
+  background: #fefae0;
+}
+
+.items_lists {
+  display: flex;
+  align-items: space-evenly;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+}
+
+.item {
+  width: 220px;
+  overflow: hidden;
   border-radius: 5px;
-  backdrop-filter: blur(3px);
+  background: #fff;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 2px 2px 5px #cfcfcf;
+}
+
+.item_image img {
+  width: 220px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+.item_image {
+  display: flex;
+  justify-content: center;
+}
+
+.item_name {
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-size: 22px;
+  padding: 5px;
+  width: 96%;
+  border-bottom: 2px solid #636363;
+}
+
+.description {
+  padding: 5px;
+  text-align: justify;
+  font-size: 13px;
+}
+
+.amount {
+  display: flex;
+  margin-top: 5px;
+  gap: 10px;
+  align-items: center;
+  font-family: sans-serif;
+}
+
+.original_amount {
+  text-decoration: line-through;
+  font-size: 12px;
+  color: #bc4749;
+}
+
+.discount_amount {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.discount_percentage {
+  color: #417801;
+  font-weight: 900;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.options button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 9px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
   color: #fff;
 }
 
-@media screen and (max-width: 635px) {
-  .content_container {
-    align-items: flex-end;
-  }
-  .content {
-    display: none;
-  }
+.view {
+  background: blue;
+}
+
+.cart {
+  background: #bc6c25;
+}
+
+.buy {
+  background: #283618;
 }

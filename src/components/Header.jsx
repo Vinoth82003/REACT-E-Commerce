@@ -19,7 +19,7 @@ function Header() {
             </div>
             <p className="bname disable-selection">CashewNuts</p>
           </div>
-          <ul className="options disable-selection">
+          <ul className="options nav_option disable-selection">
             <li className="menu_option">
               <div className="icon">
                 <FontAwesomeIcon icon={faHomeAlt} />
