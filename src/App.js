@@ -20,6 +20,7 @@ export const appContext = createContext();
 
 const all_items = [
   {
+    index: 0,
     img: img1,
     name: "1. W-180",
     description: `Cashews have no cholesterol and are packed with heart-healthy
@@ -34,6 +35,7 @@ const all_items = [
     stack: true,
   },
   {
+    index: 1,
     img: img2,
     name: "2. W-210",
     description: `The W-210 is a more compact version of the W-180. These nuts are still rather large, and they’ll cost you more cash. W-210 cashews, commonly called Jumbo cashew nuts, are also popular among consumers. They’re a little smaller than W-180, but they’re still recognized for being enormous nuts.`,
@@ -43,6 +45,7 @@ const all_items = [
     stack: true,
   },
   {
+    index: 2,
     img: img3,
     name: "3. W-240",
     description: `If you move down a size, you’ll run into the W-240. This is regular-sized cashew that is of mid-grade quality. 
@@ -53,6 +56,7 @@ const all_items = [
     stack: true,
   },
   {
+    index: 3,
     img: img4,
     name: "4. W-320",
     description: `W-320 is a popular and widely available cashew variety. It is popular since it offers the best combination of size and pricing. Despite their appropriate size, 
@@ -63,6 +67,7 @@ const all_items = [
     stack: true,
   },
   {
+    index: 4,
     img: img5,
     name: "5. W-450",
     description: `   W-450 is another variety of cashew nuts. In comparison to W-180, these are less pricey; however, they are also much smaller in size.
@@ -75,6 +80,7 @@ const all_items = [
     stack: true,
   },
   {
+    index: 5,
     img: img6,
     name: "6. Scorched Wholes",
     description: `   Cashews are sometimes known as burned or scorched cashews. Cashews that are light brown in hue have been burnt. The light brown cashews were roasted for slightly longer than the white cashews, 
@@ -85,6 +91,7 @@ const all_items = [
     stack: true,
   },
   {
+    index: 6,
     img: img7,
     name: "7. W-180",
     description: `Cashews have no cholesterol and are packed with heart-healthy
@@ -99,6 +106,7 @@ const all_items = [
     stack: true,
   },
   {
+    index: 7,
     img: img8,
     name: "8. W-210",
     description: `The W-210 is a more compact version of the W-180. These nuts are still rather large, and they’ll cost you more cash. W-210 cashews, commonly called Jumbo cashew nuts, are also popular among consumers. They’re a little smaller than W-180, but they’re still recognized for being enormous nuts.`,
@@ -108,6 +116,7 @@ const all_items = [
     stack: true,
   },
   {
+    index: 8,
     img: img9,
     name: "9. W-240",
     description: `If you move down a size, you’ll run into the W-240. This is regular-sized cashew that is of mid-grade quality. 
@@ -123,25 +132,31 @@ const all_items = [
 
 function App() {
   const [isView, setView] = useState(false);
-  const [isCart, setCart] = useState(false);
-  const [cartDetails, setCartDetails] = useState(0);
+  const [isCart, setCart] = useState(true);
+  const [cartDetails, setCartDetails] = useState([
+    all_items[4],
+    all_items[2],
+    all_items[0],
+  ]);
   const [isOrder, setOrder] = useState(false);
   const [isAuth, setAuth] = useState(false);
   const [viewContent, setViewContent] = useState(all_items[4]);
+  // const [cartItems, setcartItems] = useState([]);
+
   const value = {
-    isView: isView,
-    setView: setView,
-    isCart: isCart,
-    setCart: setCart,
-    isOrder: isOrder,
-    setOrder: setOrder,
-    all_items: all_items,
-    viewContent: viewContent,
-    setViewContent: setViewContent,
-    isAuth: isAuth,
-    setAuth: setAuth,
-    cartDetails: cartDetails,
-    setCartDetails: setCartDetails,
+    isView,
+    setView,
+    isCart,
+    setCart,
+    isOrder,
+    setOrder,
+    all_items,
+    viewContent,
+    setViewContent,
+    isAuth,
+    setAuth,
+    cartDetails,
+    setCartDetails,
   };
 
   return (
