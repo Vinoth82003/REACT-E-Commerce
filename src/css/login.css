@@ -1,0 +1,12 @@
+.inner_image1 img {
+  width: 250px;
+  height: 250px;
+}
+
+.left_images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}

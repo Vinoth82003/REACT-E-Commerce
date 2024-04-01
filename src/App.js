@@ -16,6 +16,7 @@ import View from "./components/View";
 import { createContext, useState } from "react";
 import Cart from "./components/Cart";
 import Liked from "./components/Liked";
+import Login from "./components/Login";
 
 export const appContext = createContext();
 
@@ -194,14 +195,18 @@ function App() {
 
   return (
     <>
-      <appContext.Provider value={value}>
-        <Header />
-        <Body />
-        {/* <Footer /> */}
-        {isCart && <Cart />}
-        {isLiked && <Liked />}
-        {isView && <View />}
-      </appContext.Provider>
+      {isAuth ? (
+        <appContext.Provider value={value}>
+          <Header />
+          <Body />
+          {/* <Footer /> */}
+          {isCart && <Cart />}
+          {isLiked && <Liked />}
+          {isView && <View />}
+        </appContext.Provider>
+      ) : (
+        <Login />
+      )}
     </>
   );
 }
