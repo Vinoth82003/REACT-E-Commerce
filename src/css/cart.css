@@ -224,6 +224,11 @@ ul.list_cart {
   font-weight: 700;
 }
 
+.icon span.span {
+  margin-left: 10px;
+  margin-top: -10px;
+}
+
 .remove_item {
   position: absolute;
   top: 5px;
@@ -251,6 +256,10 @@ ul.list_cart li {
   color: blue;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.liked {
+  color: #da5b5b;
 }
 
 @media screen and (max-width: 485px) {

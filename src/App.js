@@ -15,6 +15,7 @@ import img9 from "../src/images/45366.jpg";
 import View from "./components/View";
 import { createContext, useState } from "react";
 import Cart from "./components/Cart";
+import Liked from "./components/Liked";
 
 export const appContext = createContext();
 
@@ -37,6 +38,7 @@ function App() {
       discount_percentage: 50,
       quantity: 1,
       stack: true,
+      isInLike: false,
       isInCart: true,
     },
     {
@@ -49,6 +51,7 @@ function App() {
       discount_percentage: 30,
       quantity: 1,
       stack: true,
+      isInLike: true,
       isInCart: false,
     },
     {
@@ -62,6 +65,7 @@ function App() {
       discount_percentage: 90,
       quantity: 1,
       stack: true,
+      isInLike: false,
       isInCart: true,
     },
     {
@@ -75,6 +79,7 @@ function App() {
       discount_percentage: 90,
       quantity: 1,
       stack: true,
+      isInLike: true,
       isInCart: false,
     },
     {
@@ -90,6 +95,7 @@ function App() {
       discount_percentage: 0.1,
       quantity: 1,
       stack: true,
+      isInLike: false,
       isInCart: true,
     },
     {
@@ -103,6 +109,7 @@ function App() {
       discount_percentage: 0.1,
       quantity: 1,
       stack: true,
+      isInLike: false,
       isInCart: false,
     },
     {
@@ -120,6 +127,7 @@ function App() {
       discount_percentage: 50,
       quantity: 1,
       stack: true,
+      isInLike: false,
       isInCart: false,
     },
     {
@@ -132,6 +140,7 @@ function App() {
       discount_percentage: 30,
       quantity: 1,
       stack: true,
+      isInLike: false,
       isInCart: false,
     },
     {
@@ -145,6 +154,7 @@ function App() {
       discount_percentage: 90,
       quantity: 1,
       stack: true,
+      isInLike: false,
       isInCart: false,
     },
   ]);
@@ -159,7 +169,8 @@ function App() {
   const [isAuth, setAuth] = useState(false);
   const [viewContent, setViewContent] = useState(all_items[4]);
   // const [cartItems, setcartItems] = useState([]);
-
+  const [isLiked, setLiked] = useState(true);
+  const [likeDetails, setLikeDetails] = useState([all_items[3], all_items[1]]);
   const value = {
     isView,
     setView,
@@ -175,6 +186,10 @@ function App() {
     setAuth,
     cartDetails,
     setCartDetails,
+    isLiked,
+    setLiked,
+    likeDetails,
+    setLikeDetails,
   };
 
   return (
@@ -184,6 +199,7 @@ function App() {
         <Body />
         {/* <Footer /> */}
         {isCart && <Cart />}
+        {isLiked && <Liked />}
         {isView && <View />}
       </appContext.Provider>
     </>

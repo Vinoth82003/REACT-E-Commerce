@@ -5,6 +5,7 @@ import {
   faCartShopping,
   faHomeAlt,
   faUserAlt,
+  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import "../css/header.css";
 import logo from "../images/1.png";
@@ -46,6 +47,12 @@ function Header() {
 
   function handleCart() {
     value.setCart(!value.isCart);
+    value.setLiked(false);
+  }
+
+  function handleLiked() {
+    value.setLiked(!value.isLiked);
+    value.setCart(false);
   }
 
   return (
@@ -82,6 +89,13 @@ function Header() {
               <FontAwesomeIcon icon={faCartShopping} />
             </div>
             <p className="text disable-selection">Cart</p>
+          </li>
+          <li className="menu_option" onClick={handleLiked}>
+            <div className="icon">
+              <span className="span">{value.likeDetails.length}</span>
+              <FontAwesomeIcon icon={faHeart} />
+            </div>
+            <p className="text disable-selection">Liked</p>
           </li>
           {value.isAuth ? <Profile /> : <Login />}
         </ul>

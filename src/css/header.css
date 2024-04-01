@@ -224,8 +224,20 @@ li {
     transition: all 0.3s;
   }
 
+  @keyframes navAnime {
+    0% {
+      min-height: 0;
+      height: 0;
+    }
+    100% {
+      min-height: 200px;
+      height: 200px;
+    }
+  }
+
   .nav_option.active {
-    min-height: 150px;
+    min-height: 200px;
+    animation: navAnime 0.3s ease-in forwards;
   }
 
   .nav_option.active .menu_option {

@@ -4,7 +4,6 @@ import {
   faCartPlus,
   faHeart,
   faShoppingBag,
-  faCheck,
   faCheckToSlot,
 } from "@fortawesome/free-solid-svg-icons";
 import "../css/body.css";
@@ -24,6 +23,12 @@ const Body = () => {
     const newItem = items[index];
     newItem.isInCart = true;
     value.setCartDetails((prevDetails) => [...prevDetails, newItem]);
+  };
+
+  const addToLike = (index) => {
+    const newItem = items[index];
+    newItem.isInLike = true;
+    value.setLikeDetails((prevDetails) => [...prevDetails, newItem]);
   };
 
   return (
@@ -77,12 +82,22 @@ const Body = () => {
                     <div className="text">Cart</div>
                   </button>
                 )}
-                <button type="button" className="like">
-                  <div className="icon">
-                    <FontAwesomeIcon icon={faHeart} />
+                {item.isInLike ? (
+                  <div className="added liked">
+                    <FontAwesomeIcon icon={faCheckToSlot} /> Liked
                   </div>
-                  <div className="text">like</div>
-                </button>
+                ) : (
+                  <button
+                    type="button"
+                    className="like"
+                    onClick={() => addToLike(index)}
+                  >
+                    <div className="icon">
+                      <FontAwesomeIcon icon={faHeart} />
+                    </div>
+                    <div className="text">like</div>
+                  </button>
+                )}
               </div>
             </li>
           ))}
