@@ -140,3 +140,8 @@ button.buy:hover {
   box-shadow: 0px 0px 5px #417801, 0px 0px 30px #bc6c25;
   border: 2px solid #bebd8bda;
 }
+
+.added {
+  color: #3b9167;
+  cursor: pointer;
+}

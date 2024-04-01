@@ -46,12 +46,21 @@ const Cart = () => {
   };
 
   const handleClear = () => {
+    const updatedCartDetails = value.all_items.map((item) => ({
+      ...item,
+      quantity: 1,
+      isInCart: false,
+    }));
+    value.setItem(updatedCartDetails);
+    // console.log(updatedCartDetails);
     value.setCartDetails([]);
+    console.log(value.all_items);
   };
 
   const handleRemove = (index) => {
     value.setCartDetails((prevDetails) => {
       prevDetails[index].isInCart = false;
+      prevDetails[index].quantity = 1;
       const updatedDetails = prevDetails.filter((_, i) => i !== index);
       return updatedDetails;
     });
@@ -76,59 +85,68 @@ const Cart = () => {
             </div>
           </div>
           <ul className="list_cart">
-            {value.cartDetails.map((detail, index) => (
-              <li key={detail.index} className="inner_cart_li">
-                <div
-                  className="remove_item"
-                  onClick={() => handleRemove(index)}
-                >
-                  <FontAwesomeIcon icon={faTimesCircle} />
-                </div>
-                <div className="li_head">
-                  <div className="inner_image">
-                    <img src={detail.img} alt="cart image" />
-                  </div>
-                  <div className="inner_cnt">
-                    <h3 className="title">{detail.name}</h3>
-                    <p className="description">{detail.description}</p>
-                  </div>
-                </div>
-                <div className="inner_cart_options">
-                  <button
-                    type="button"
-                    className="view"
-                    onClick={() => handleView(detail.index)}
+            {value.cartDetails.length > 0 ? (
+              value.cartDetails.map((detail, index) => (
+                <li key={detail.index} className="inner_cart_li">
+                  <div
+                    className="remove_item"
+                    onClick={() => handleRemove(index)}
                   >
-                    <FontAwesomeIcon icon={faEye} /> view
-                  </button>
-                  <div className="quantity">
+                    <FontAwesomeIcon icon={faTimesCircle} />
+                  </div>
+                  <div className="li_head">
+                    <div className="inner_image">
+                      <img src={detail.img} alt="cart image" />
+                    </div>
+                    <div className="inner_cnt">
+                      <h3 className="title">{detail.name}</h3>
+                      <p className="description">{detail.description}</p>
+                    </div>
+                  </div>
+                  <div className="inner_cart_options">
                     <button
                       type="button"
-                      className="plus"
-                      onClick={() => handleDec(index)}
+                      className="view"
+                      onClick={() => handleView(detail.index)}
                     >
-                      <FontAwesomeIcon icon={faMinus} />
+                      <FontAwesomeIcon icon={faEye} /> view
                     </button>
-                    <input
-                      type="text"
-                      min={1}
-                      value={detail.quantity}
-                      readOnly
-                    />
-                    <button
-                      type="button"
-                      className="plus"
-                      onClick={() => handleInc(index)}
-                    >
-                      <FontAwesomeIcon icon={faPlus} />
+                    <div className="quantity">
+                      <button
+                        type="button"
+                        className="plus"
+                        onClick={() => handleDec(index)}
+                      >
+                        <FontAwesomeIcon icon={faMinus} />
+                      </button>
+                      <input
+                        type="text"
+                        min={1}
+                        value={detail.quantity}
+                        readOnly
+                      />
+                      <button
+                        type="button"
+                        className="plus"
+                        onClick={() => handleInc(index)}
+                      >
+                        <FontAwesomeIcon icon={faPlus} />
+                      </button>
+                    </div>
+                    <button type="button" className="order">
+                      <FontAwesomeIcon icon={faBagShopping} /> Order
                     </button>
                   </div>
-                  <button type="button" className="order">
-                    <FontAwesomeIcon icon={faBagShopping} /> Order
-                  </button>
-                </div>
+                </li>
+              ))
+            ) : (
+              <li className="inner_cart_li">
+                Empty Cart ..!{" "}
+                <span className="return" onClick={handleCartClose}>
+                  return shopping
+                </span>
               </li>
-            ))}
+            )}
           </ul>
           <div className="bottom_bar">
             <button type="button" className="clear" onClick={handleClear}>

@@ -4,6 +4,8 @@ import {
   faCartPlus,
   faHeart,
   faShoppingBag,
+  faCheck,
+  faCheckToSlot,
 } from "@fortawesome/free-solid-svg-icons";
 import "../css/body.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -60,7 +62,9 @@ const Body = () => {
                   <div className="text">View</div>
                 </button>
                 {item.isInCart ? (
-                  <div>Added</div>
+                  <div className="added">
+                    <FontAwesomeIcon icon={faCheckToSlot} /> Added
+                  </div>
                 ) : (
                   <button
                     type="button"

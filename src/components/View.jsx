@@ -4,6 +4,7 @@ import {
   faShoppingBag,
   faCartPlus,
   faHeart,
+  faCheckToSlot,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { appContext } from "../App";
@@ -15,6 +16,13 @@ const View = () => {
   function handleViewClose() {
     value.setView(false);
   }
+
+  const addToCart = (index) => {
+    const newItem = value.all_items[index];
+    newItem.isInCart = true;
+    value.setCartDetails((prevDetails) => [...prevDetails, newItem]);
+  };
+  //
   return (
     <>
       <div className="view_page">
@@ -69,12 +77,22 @@ const View = () => {
               </div>
               <div className="text">Order</div>
             </button>
-            <button type="button" className="cart">
-              <div className="icon">
-                <FontAwesomeIcon icon={faCartPlus} />
+            {viewContent.isInCart ? (
+              <div className="added">
+                <FontAwesomeIcon icon={faCheckToSlot} /> Added
               </div>
-              <div className="text">Cart</div>
-            </button>
+            ) : (
+              <button
+                type="button"
+                className="cart"
+                onClick={() => addToCart(viewContent.index)}
+              >
+                <div className="icon">
+                  <FontAwesomeIcon icon={faCartPlus} />
+                </div>
+                <div className="text">Cart</div>
+              </button>
+            )}
             <button type="button" className="like">
               <div className="icon">
                 <FontAwesomeIcon icon={faHeart} />

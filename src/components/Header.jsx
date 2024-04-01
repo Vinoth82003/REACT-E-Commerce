@@ -45,7 +45,7 @@ function Header() {
   };
 
   function handleCart() {
-    value.setCart(true);
+    value.setCart(!value.isCart);
   }
 
   return (

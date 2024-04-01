@@ -3,8 +3,8 @@
   right: 0;
   top: 75px;
   z-index: 100;
-  background: #ffffff85;
-  width: 100%;
+  background: transparent;
+  /* width: 100%; */
   height: calc(100vh - 80px);
   border-radius: 5px 0 0 5px;
   padding: 10px;
@@ -245,6 +245,12 @@ ul.list_cart {
 ul.list_cart li {
   animation: moveUp 0.5s ease-in forwards;
   animation-delay: 0.1s;
+}
+
+.return {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 485px) {
