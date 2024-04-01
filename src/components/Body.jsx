@@ -18,6 +18,12 @@ const Body = () => {
     value.setViewContent(value.all_items[index]);
   }
 
+  const addToCart = (index) => {
+    const newItem = items[index];
+    newItem.isInCart = true;
+    value.setCartDetails((prevDetails) => [...prevDetails, newItem]);
+  };
+
   return (
     <main className="body">
       <div className="inner_body">
@@ -53,12 +59,20 @@ const Body = () => {
                   </div>
                   <div className="text">View</div>
                 </button>
-                <button type="button" className="cart">
-                  <div className="icon">
-                    <FontAwesomeIcon icon={faCartPlus} />
-                  </div>
-                  <div className="text">Cart</div>
-                </button>
+                {item.isInCart ? (
+                  <div>Added</div>
+                ) : (
+                  <button
+                    type="button"
+                    className="cart"
+                    onClick={() => addToCart(index)}
+                  >
+                    <div className="icon">
+                      <FontAwesomeIcon icon={faCartPlus} />
+                    </div>
+                    <div className="text">Cart</div>
+                  </button>
+                )}
                 <button type="button" className="like">
                   <div className="icon">
                     <FontAwesomeIcon icon={faHeart} />

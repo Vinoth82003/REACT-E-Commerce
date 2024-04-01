@@ -106,13 +106,15 @@ li {
   .body {
     position: relative;
     top: 75px;
-    width: calc(100vw);
+    max-width: calc(100vw);
     padding: 10px;
     min-height: calc(100vh - 75px);
     display: flex;
     justify-content: center;
     left: -10px;
+    overflow: hidden;
   }
+
   .menu_option {
     padding: 0;
   }
@@ -258,7 +260,8 @@ li {
   }
 
   .item {
-    width: calc(100% - 50px);
+    min-width: 300px;
+    max-width: calc(100% - 20px);
     overflow: hidden;
     border-radius: 5px;
     background: #fff;

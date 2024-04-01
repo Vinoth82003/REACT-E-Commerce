@@ -32,7 +32,9 @@ const all_items = [
     original_amount: 1000,
     discount_amount: 500,
     discount_percentage: 50,
+    quantity: 1,
     stack: true,
+    isInCart: false,
   },
   {
     index: 1,
@@ -42,7 +44,9 @@ const all_items = [
     original_amount: 1000,
     discount_amount: 700,
     discount_percentage: 30,
+    quantity: 1,
     stack: true,
+    isInCart: false,
   },
   {
     index: 2,
@@ -53,7 +57,9 @@ const all_items = [
     original_amount: 1000,
     discount_amount: 100,
     discount_percentage: 90,
+    quantity: 1,
     stack: true,
+    isInCart: false,
   },
   {
     index: 3,
@@ -64,7 +70,9 @@ const all_items = [
     original_amount: 1000,
     discount_amount: 100,
     discount_percentage: 90,
+    quantity: 1,
     stack: true,
+    isInCart: false,
   },
   {
     index: 4,
@@ -77,7 +85,9 @@ const all_items = [
     original_amount: 1005,
     discount_amount: 1000,
     discount_percentage: 0.1,
+    quantity: 1,
     stack: true,
+    isInCart: false,
   },
   {
     index: 5,
@@ -88,7 +98,9 @@ const all_items = [
     original_amount: 1005,
     discount_amount: 1000,
     discount_percentage: 0.1,
+    quantity: 1,
     stack: true,
+    isInCart: false,
   },
   {
     index: 6,
@@ -103,7 +115,9 @@ const all_items = [
     original_amount: 1000,
     discount_amount: 500,
     discount_percentage: 50,
+    quantity: 1,
     stack: true,
+    isInCart: false,
   },
   {
     index: 7,
@@ -113,7 +127,9 @@ const all_items = [
     original_amount: 1000,
     discount_amount: 700,
     discount_percentage: 30,
+    quantity: 1,
     stack: true,
+    isInCart: false,
   },
   {
     index: 8,
@@ -124,7 +140,9 @@ const all_items = [
     original_amount: 1000,
     discount_amount: 100,
     discount_percentage: 90,
+    quantity: 1,
     stack: true,
+    isInCart: false,
   },
 ];
 
@@ -132,7 +150,7 @@ const all_items = [
 
 function App() {
   const [isView, setView] = useState(false);
-  const [isCart, setCart] = useState(true);
+  const [isCart, setCart] = useState(false);
   const [cartDetails, setCartDetails] = useState([
     all_items[4],
     all_items[2],

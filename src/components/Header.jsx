@@ -78,6 +78,7 @@ function Header() {
           </li>
           <li className="menu_option" onClick={handleCart}>
             <div className="icon">
+              <span>{value.cartDetails.length}</span>
               <FontAwesomeIcon icon={faCartShopping} />
             </div>
             <p className="text disable-selection">Cart</p>
