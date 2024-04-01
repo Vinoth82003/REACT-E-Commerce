@@ -1,19 +1,52 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUserPlus,
   faCartShopping,
   faHomeAlt,
+  faUserAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import "../css/header.css";
 import logo from "../images/1.png";
+import { appContext } from "../App";
 
 function Header() {
+  const value = useContext(appContext);
   const [isToggle, setToggle] = useState(false);
 
   const toggleMenu = () => {
     setToggle(!isToggle);
   };
+
+  const Profile = () => {
+    return (
+      <>
+        <li className="menu_option">
+          <div className="icon">
+            <FontAwesomeIcon icon={faUserAlt} />
+          </div>
+          <p className="text">Profile</p>
+        </li>
+      </>
+    );
+  };
+
+  const Login = () => {
+    return (
+      <>
+        <li className="menu_option">
+          <div className="icon">
+            <FontAwesomeIcon icon={faUserPlus} />
+          </div>
+          <p className="text disable-selection">Login</p>
+        </li>
+      </>
+    );
+  };
+
+  function handleCart() {
+    value.setCart(true);
+  }
 
   return (
     <header className="header">
@@ -43,18 +76,13 @@ function Header() {
             </div>
             <p className="text disable-selection">Home</p>
           </li>
-          <li className="menu_option">
+          <li className="menu_option" onClick={handleCart}>
             <div className="icon">
               <FontAwesomeIcon icon={faCartShopping} />
             </div>
             <p className="text disable-selection">Cart</p>
           </li>
-          <li className="menu_option">
-            <div className="icon">
-              <FontAwesomeIcon icon={faUserPlus} />
-            </div>
-            <p className="text disable-selection">Login</p>
-          </li>
+          {value.isAuth ? <Profile /> : <Login />}
         </ul>
       </nav>
     </header>

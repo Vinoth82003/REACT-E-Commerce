@@ -147,6 +147,10 @@ li {
     z-index: 1;
     top: -14px;
   }
+
+  .top_lft {
+    flex-wrap: wrap;
+  }
 }
 
 @media screen and (max-width: 485px) {

@@ -1,6 +1,6 @@
 import "./App.css";
 import Body from "./components/Body";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import Header from "./components/Header";
 
 import img1 from "../src/images/cat_1.jpg";
@@ -12,6 +12,11 @@ import img6 from "../src/images/cat_6.png";
 import img7 from "../src/images/1482.jpg";
 import img8 from "../src/images/45360.jpg";
 import img9 from "../src/images/45366.jpg";
+import View from "./components/View";
+import { createContext, useState } from "react";
+import Cart from "./components/Cart";
+
+export const appContext = createContext();
 
 const all_items = [
   {
@@ -114,12 +119,40 @@ const all_items = [
   },
 ];
 
+// const viewContent = all_items[4];
+
 function App() {
+  const [isView, setView] = useState(false);
+  const [isCart, setCart] = useState(false);
+  const [cartDetails, setCartDetails] = useState(0);
+  const [isOrder, setOrder] = useState(false);
+  const [isAuth, setAuth] = useState(false);
+  const [viewContent, setViewContent] = useState(all_items[4]);
+  const value = {
+    isView: isView,
+    setView: setView,
+    isCart: isCart,
+    setCart: setCart,
+    isOrder: isOrder,
+    setOrder: setOrder,
+    all_items: all_items,
+    viewContent: viewContent,
+    setViewContent: setViewContent,
+    isAuth: isAuth,
+    setAuth: setAuth,
+    cartDetails: cartDetails,
+    setCartDetails: setCartDetails,
+  };
+
   return (
     <>
-      <Header />
-      <Body items={all_items} />
-      <Footer />
+      <appContext.Provider value={value}>
+        <Header />
+        <Body />
+        {/* <Footer /> */}
+        {isCart && <Cart />}
+        {isView && <View />}
+      </appContext.Provider>
     </>
   );
 }

@@ -29,7 +29,8 @@
 }
 
 .item {
-  width: 220px;
+  min-width: 220px;
+  max-width: calc(100% / 3.5);
   overflow: hidden;
   border-radius: 5px;
   background: #fff;
@@ -38,6 +39,7 @@
   flex-direction: column;
   justify-content: space-between;
   box-shadow: 2px 2px 5px #cfcfcf;
+  position: relative;
 }
 
 .item_image img {
@@ -97,7 +99,7 @@
   margin-top: 5px;
 }
 
-.options button {
+button {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -116,6 +118,25 @@
   background: #bc6c25;
 }
 
-.buy {
-  background: #283618;
+.like {
+  background: #bc4749;
+}
+
+button.buy {
+  background: #363518da;
+  position: absolute;
+  right: 10px;
+  width: 100px;
+  height: 40px;
+  border-radius: 50px;
+  justify-content: center;
+  letter-spacing: 1px;
+  border: 2px solid #363518da;
+  transition: all 0.3s;
+}
+
+button.buy:hover {
+  background: #363518;
+  box-shadow: 0px 0px 5px #417801, 0px 0px 30px #bc6c25;
+  border: 2px solid #bebd8bda;
 }

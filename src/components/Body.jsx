@@ -1,19 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   faEye,
   faCartPlus,
-  faMoneyBill,
+  faHeart,
+  faShoppingBag,
 } from "@fortawesome/free-solid-svg-icons";
 import "../css/body.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { appContext } from "../App";
 
-const Body = ({ items }) => {
+const Body = () => {
+  const value = useContext(appContext);
+  const items = value.all_items;
+
+  function handleView(index) {
+    value.setView(true);
+    value.setViewContent(value.all_items[index]);
+  }
+
   return (
     <main className="body">
       <div className="inner_body">
         <ul className="items_lists">
           {items.map((item, index) => (
             <li key={index} className="item">
+              <button type="button" className="buy">
+                <div className="icon">
+                  <FontAwesomeIcon icon={faShoppingBag} />
+                </div>
+                <div className="text">Order</div>
+              </button>
               <div className="item_image">
                 <img src={item.img} alt="items" />
               </div>
@@ -27,7 +43,11 @@ const Body = ({ items }) => {
                 </p>
               </div>
               <div className="options">
-                <button type="button" className="view">
+                <button
+                  type="button"
+                  className="view"
+                  onClick={() => handleView(index)}
+                >
                   <div className="icon">
                     <FontAwesomeIcon icon={faEye} />
                   </div>
@@ -39,11 +59,11 @@ const Body = ({ items }) => {
                   </div>
                   <div className="text">Cart</div>
                 </button>
-                <button type="button" className="buy">
+                <button type="button" className="like">
                   <div className="icon">
-                    <FontAwesomeIcon icon={faMoneyBill} />
+                    <FontAwesomeIcon icon={faHeart} />
                   </div>
-                  <div className="text">Buy</div>
+                  <div className="text">like</div>
                 </button>
               </div>
             </li>
