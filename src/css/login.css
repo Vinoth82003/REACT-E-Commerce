@@ -1,7 +1,122 @@
 .login_page {
-  width: 100%;
-  height: 100%;
-  min-height: calc(100vh);
-  background: #333;
+  background: #e7e7e7;
   position: absolute;
+  min-height: 100vh;
+  padding: 10px;
+}
+
+.inner_login {
+  width: calc(100vw - 30px);
+  display: flex;
+  max-height: calc(100vh - 50px);
+}
+
+.images_container,
+.login_form {
+  min-height: 300px;
+  min-height: 400px;
+  width: 50%;
+  max-width: calc(100% - 10px);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.images_container {
+  border-radius: 5px 0 0 5px;
+}
+
+.login_form {
+  border-radius: 0px 5px 5px 0;
+}
+
+.images_container img {
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+
+.login_form {
+  padding: 10px;
+  min-height: 300px;
+}
+
+.loginForm {
+  min-width: 300px;
+  width: 60%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  border: 2px solid #7caaff;
+  border-radius: 5px;
+  justify-content: space-evenly;
+  font-family: sans-serif;
+  height: 90%;
+}
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.inputField input {
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #7caaff;
+  background: #eee;
+  border-radius: 5px 5px 0 0;
+  outline: none;
+}
+
+div.tmc {
+  width: 100%;
+  display: flex;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+  padding: 10px;
+  color: #0548c4;
+  text-decoration: underline;
+}
+
+div.tmc label {
+  cursor: pointer;
+}
+
+.submit_button {
+  padding: 10px 20px;
+  background: green;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submit_button:hover {
+  background: rgb(55, 162, 55);
+}
+
+.image_title {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: sans-serif;
+  height: 50px;
+  width: 250px;
+  /* background: #7caaff; */
+  overflow: hidden;
+  border-bottom: 2px solid #0548c4;
+}
+
+.imgTitle {
+  margin-top: 50px;
+  transition: all 0.5s;
+  position: absolute;
+}
+
+.imgTitle.active {
+  margin-top: 0;
 }
