@@ -19,7 +19,7 @@ import Liked from "./components/Liked";
 import Login from "./components/Login";
 
 export const appContext = createContext();
-
+export const loginContext = createContext();
 // const viewContent = all_items[4];
 
 function App() {
@@ -170,7 +170,7 @@ function App() {
   const [isAuth, setAuth] = useState(false);
   const [viewContent, setViewContent] = useState(all_items[4]);
   // const [cartItems, setcartItems] = useState([]);
-  const [isLiked, setLiked] = useState(true);
+  const [isLiked, setLiked] = useState(false);
   const [likeDetails, setLikeDetails] = useState([all_items[3], all_items[1]]);
   const value = {
     isView,
@@ -193,6 +193,11 @@ function App() {
     setLikeDetails,
   };
 
+  const login = {
+    isAuth,
+    setAuth,
+  };
+
   return (
     <>
       {isAuth ? (
@@ -205,7 +210,9 @@ function App() {
           {isView && <View />}
         </appContext.Provider>
       ) : (
-        <Login />
+        <loginContext.Provider value={login}>
+          <Login />
+        </loginContext.Provider>
       )}
     </>
   );

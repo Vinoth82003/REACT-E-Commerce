@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUnlockKeyhole,
@@ -6,47 +6,48 @@ import {
   faUserCheck,
 } from "@fortawesome/free-solid-svg-icons";
 
-import img0 from "../illus/buy best product.png";
-import img1 from "../illus/best_seller.png";
-import img2 from "../illus/secure payment.png";
-import img3 from "../illus/Secure data.png";
+import img0 from "../illus/Cash Payment.png";
+import img1 from "../illus/Customer relationship management-bro.png";
+import img2 from "../illus/Order ahead-rafiki.png";
+import img3 from "../illus/Order food-amico.png";
+import img4 from "../illus/Secure data.png";
+import img5 from "../illus/Security-bro.png";
+import img6 from "../illus/best_seller.png";
+import img7 from "../illus/buy best product.png";
+import img8 from "../illus/secure payment.png";
+import { loginContext } from "../App";
 
 import "../css/login.css";
 
 const Login = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
+  const [activeIndex, setActiveIndex] = useState(0);
+  const loginDetails = useContext(loginContext);
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % 4);
-    }, 5000);
+      setActiveIndex((prevIndex) => (prevIndex + 1) % 9); // Assuming you have 9 images
+    }, 2000); // Adjust the interval time as needed
 
-    return () => clearInterval(intervalId); // Cleanup interval on unmount
+    return () => clearInterval(intervalId);
   }, []);
 
-  const images = [img0, img1, img2, img3];
-  const titles = ["Buy Product", "Best Seller", "Safe Payment", "Secure Data"];
-
-  const handleImageChange = (index) => {
-    setCurrentIndex(index);
+  const handleLogin = () => {
+    loginDetails.setAuth(true);
   };
 
   return (
     <div className="login_page">
       <div className="inner_login">
         <div className="images_container">
-          <div className="image_title">
-            {titles.map((title, index) => (
-              <h1
+          {[img0, img1, img2, img3, img4, img5, img6, img7, img8].map(
+            (img, index) => (
+              <div
                 key={index}
-                className={`imgTitle ${currentIndex === index ? "active" : ""}`}
-                onClick={() => handleImageChange(index)}
+                className={`img ${index === activeIndex ? "active" : ""}`}
               >
-                {title}
-              </h1>
-            ))}
-          </div>
-          <img src={images[currentIndex]} alt="show" className="imageShow" />
+                <img src={img} alt={`${index}`} />
+              </div>
+            )
+          )}
         </div>
         <div className="login_form">
           <form action="#" className="loginForm">
@@ -68,10 +69,16 @@ const Login = () => {
                 <input type="checkbox" name="tmc" id="tnc" /> Terms & Conditions
               </label>
               <label htmlFor="signup">
-                <p className="signupLink">Sign up</p>
+                <a href="/signup" className="signupLink">
+                  Sign up
+                </a>
               </label>
             </div>
-            <button type="submit" className="submit_button">
+            <button
+              type="submit"
+              className="submit_button"
+              onClick={handleLogin}
+            >
               <FontAwesomeIcon icon={faUserCheck} /> Login
             </button>
           </form>
