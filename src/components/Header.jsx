@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUserPlus,
   faCartShopping,
-  faHomeAlt,
   faUserAlt,
   faHeart,
+  faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import "../css/header.css";
 import logo from "../images/1.png";
@@ -55,6 +55,10 @@ function Header() {
     value.setCart(false);
   }
 
+  const handleLogout = () => {
+    value.setAuth(false);
+  };
+
   return (
     <header className="header">
       <nav className="nav_bar">
@@ -77,12 +81,6 @@ function Header() {
             isToggle ? "active" : ""
           } disable-selection`}
         >
-          <li className="menu_option">
-            <div className="icon">
-              <FontAwesomeIcon icon={faHomeAlt} />
-            </div>
-            <p className="text disable-selection">Home</p>
-          </li>
           <li className="menu_option" onClick={handleCart}>
             <div className="icon">
               <span>{value.cartDetails.length}</span>
@@ -98,6 +96,12 @@ function Header() {
             <p className="text disable-selection">Liked</p>
           </li>
           {value.isAuth ? <Profile /> : <Login />}
+          <li className="menu_option" onClick={handleLogout}>
+            <div className="icon">
+              <FontAwesomeIcon icon={faSignOutAlt} />
+            </div>
+            <p className="text disable-selection">Logout</p>
+          </li>
         </ul>
       </nav>
     </header>

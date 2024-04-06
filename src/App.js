@@ -17,6 +17,7 @@ import { createContext, useState } from "react";
 import Cart from "./components/Cart";
 import Liked from "./components/Liked";
 import Login from "./components/Login";
+import Signup from "./components/Signup";
 
 export const appContext = createContext();
 export const loginContext = createContext();
@@ -192,10 +193,13 @@ function App() {
     likeDetails,
     setLikeDetails,
   };
+  const [isSignup, setSignup] = useState(false);
 
   const login = {
     isAuth,
     setAuth,
+    isSignup,
+    setSignup,
   };
 
   return (
@@ -211,7 +215,7 @@ function App() {
         </appContext.Provider>
       ) : (
         <loginContext.Provider value={login}>
-          <Login />
+          {isSignup ? <Signup /> : <Login />}
         </loginContext.Provider>
       )}
     </>

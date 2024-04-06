@@ -6,6 +6,7 @@ import {
   faUserCheck,
   faExclamationTriangle,
   faTimesCircle,
+  faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 
 import img0 from "../illus/Cash Payment.png";
@@ -41,6 +42,10 @@ const Login = () => {
     setIsEmptyInput(false);
   };
 
+  const switchLogin = () => {
+    loginDetails.setSignup(false);
+  };
+
   const Alert = ({ message }) => {
     return (
       <>
@@ -61,7 +66,9 @@ const Login = () => {
   };
 
   const handleTmc = (event) => {
-    setIsChecked(event.target.checked); // Update the isChecked state
+    setIsChecked(event.target.checked); 
+    // Update the isChecked state
+    console.log(isChecked);
   };
 
   const handleLogin = () => {
@@ -99,8 +106,8 @@ const Login = () => {
           </div>
           <div className="login_form">
             <form action="#" className="loginForm">
-              <h1 className="form_title">Login Form</h1>
-              <div className="inputField">
+              <h1 className="form_title signupTitle">Sign up</h1>
+              <div className="inputField signupInput">
                 <label htmlFor="name">
                   <FontAwesomeIcon icon={faUserAlt} /> User Name :
                 </label>
@@ -111,9 +118,31 @@ const Login = () => {
                   required
                 />
               </div>
-              <div className="inputField">
+              <div className="inputField signupInput">
+                <label htmlFor="name">
+                  <FontAwesomeIcon icon={faEnvelope} /> Email :
+                </label>
+                <input
+                  type="text"
+                  id="username"
+                  placeholder="eg: John Doe"
+                  required
+                />
+              </div>
+              <div className="inputField signupInput">
                 <label htmlFor="password">
                   <FontAwesomeIcon icon={faUnlockKeyhole} /> Password :
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="eg: ********"
+                  required
+                />
+              </div>
+              <div className="inputField signupInput">
+                <label htmlFor="password">
+                  <FontAwesomeIcon icon={faUnlockKeyhole} /> Confirm Password :
                 </label>
                 <input
                   type="password"
@@ -130,11 +159,11 @@ const Login = () => {
                     id="tnc"
                     onChange={handleTmc} // Pass the function directly
                   />
-                  Keep me login
+                  Terms & Condition
                 </label>
-                <label htmlFor="signup">
-                  <a href="/signup" className="signupLink">
-                    Sign up
+                <label htmlFor="signup" onClick={switchLogin}>
+                  <a href="#" className="signupLink">
+                    login
                   </a>
                 </label>
               </div>

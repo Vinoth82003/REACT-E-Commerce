@@ -10,6 +10,7 @@
   display: flex;
   /* max-height: calc(100vh - 50px); */
   padding: 10px;
+  background: #fff;
 }
 
 .images_container,
@@ -18,7 +19,6 @@
   min-height: 400px;
   width: 50%;
   max-width: calc(100% - 10px);
-  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,7 +71,8 @@
   max-height: 600px;
 }
 
-.loginForm {
+.loginForm,
+.signupForm {
   min-width: 300px;
   width: 100%;
   max-width: 450px;
@@ -104,14 +105,22 @@
   border-radius: 5px 5px 0 0;
   outline: none;
 }
+.signupInput input {
+  padding: 10px;
+}
 
 .inputField label {
   padding: 5px;
   /* background: blue; */
   color: blue;
   /* border-radius: 10px; */
-  max-width: 115px;
+  max-width: 165px;
   border-bottom: 2px solid blue;
+  text-wrap: nowrap;
+  font-size: 100%;
+}
+.signupInput label {
+  font-size: 16px;
 }
 
 div.tmc {
@@ -165,6 +174,12 @@ div.tmc label {
   color: #505050;
 }
 
+.signupTitle {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 25px;
+}
+
 @media screen and (max-width: 650px) {
   .inner_login {
     display: block;
@@ -179,9 +194,57 @@ div.tmc label {
   }
 }
 
+@keyframes alert {
+  0% {
+    margin-right: 0;
+  }
+  25% {
+    margin-right: -10px;
+  }
+  50% {
+    margin-right: 20px;
+  }
+  75% {
+    margin-right: -20px;
+  }
+  100% {
+    margin-right: 0px;
+  }
+}
+
 .alert {
   position: absolute;
-  z-index: 100px;
-  right: 20px;
+  z-index: 100;
+  right: 30px;
   top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 15px;
+  max-width: 250px;
+  background: #fff;
+  box-shadow: 3px 3px 5px #c5c5c5;
+  font-family: sans-serif;
+  border-radius: 5px;
+  margin-right: 0;
+  animation: alert 0.5s ease-in forwards;
+}
+
+.alertClose {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: red;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.alertTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.alertIcon {
+  color: rgb(255, 136, 0);
 }
