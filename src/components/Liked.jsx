@@ -37,8 +37,7 @@ const Cart = () => {
 
   const handleRemove = (index) => {
     value.setLikeDetails((prevDetails) => {
-      prevDetails[index].isInCart = false;
-      prevDetails[index].quantity = 1;
+      prevDetails[index].isInLike = false;
       const updatedDetails = prevDetails.filter((_, i) => i !== index);
       return updatedDetails;
     });
