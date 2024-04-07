@@ -118,7 +118,7 @@ const Cart = () => {
               ))
             ) : (
               <li className="inner_cart_li">
-                Empty Wish List ..!
+                Empty Wish List ..!☹️
                 <span className="return" onClick={handleLikedClose}>
                   return shopping
                 </span>
