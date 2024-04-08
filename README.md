@@ -94,6 +94,3 @@ React E-Commerce is licensed under the MIT License. See the [LICENSE](LICENSE) f
 
 For any questions or inquiries, feel free to contact Vinoth at vinothg0618@gmail.com.
 
-```
-
-```
