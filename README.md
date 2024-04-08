@@ -36,8 +36,6 @@ To get started with React E-Commerce, follow these steps:
 git clone https://github.com/Vinoth82003/REACT-E-Commerce.git
 ```
 
-````
-
 2. Navigate to the project directory:
 
 ```bash
@@ -96,4 +94,6 @@ React E-Commerce is licensed under the MIT License. See the [LICENSE](LICENSE) f
 
 For any questions or inquiries, feel free to contact Vinoth at vinothg0618@gmail.com.
 
-````
+```
+
+```
