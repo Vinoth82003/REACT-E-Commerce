@@ -41,7 +41,7 @@ const Body = () => {
                 <div className="icon">
                   <FontAwesomeIcon icon={faShoppingBag} />
                 </div>
-                <div className="text">Order</div>
+                <div className="text">Buy</div>
               </button>
               <div className="item_image">
                 <img src={item.img} alt="items" />

@@ -18,6 +18,7 @@ import Cart from "./components/Cart";
 import Liked from "./components/Liked";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import Order from "./components/Order";
 
 export const appContext = createContext();
 export const loginContext = createContext();
@@ -167,12 +168,14 @@ function App() {
     all_items[2],
     all_items[0],
   ]);
-  const [isOrder, setOrder] = useState(false);
-  const [isAuth, setAuth] = useState(false);
+  const [isOrder, setOrder] = useState(true);
+  const [orderItem, setOrderItem] = useState([all_items[0]]);
+  const [isAuth, setAuth] = useState(true);
   const [viewContent, setViewContent] = useState(all_items[4]);
   // const [cartItems, setcartItems] = useState([]);
   const [isLiked, setLiked] = useState(false);
   const [likeDetails, setLikeDetails] = useState([all_items[3], all_items[1]]);
+
   const value = {
     isView,
     setView,
@@ -212,6 +215,7 @@ function App() {
           {isCart && <Cart />}
           {isLiked && <Liked />}
           {isView && <View />}
+          {isOrder && <Order orderItem={orderItem} />}
         </appContext.Provider>
       ) : (
         <loginContext.Provider value={login}>

@@ -1,0 +1,13 @@
+.oder_page {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  min-height: 100vh;
+  background: #ffffffd0;
+  inset: 0;
+}
+
+.header {
+  margin: 10px;
+  padding: 10px;
+}
