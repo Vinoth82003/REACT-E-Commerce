@@ -2,12 +2,17 @@
 
 Welcome to React E-Commerce, a simple e-commerce web application built with React.js.
 
+## Live Demo
+
+Check out the live demo of React E-Commerce [here](https://react-e-commerce-nine-beta.vercel.app/).
+
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Live Demo](#live-demo)
 - [Dependencies](#dependencies)
 - [Scripts](#scripts)
 - [Contributing](#contributing)
@@ -93,4 +98,3 @@ React E-Commerce is licensed under the MIT License. See the [LICENSE](LICENSE) f
 ## Contact
 
 For any questions or inquiries, feel free to contact Vinoth at vinothg0618@gmail.com.
-
