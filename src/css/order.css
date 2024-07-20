@@ -1,13 +1,41 @@
-.oder_page {
+.order_page {
   position: fixed;
-  z-index: 1000;
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
-  background: #ffffffd0;
-  inset: 0;
+  background: #ffffffd8;
+  z-index: 10000;
+  top: 0;
+  left: 0;
 }
 
-.header {
-  margin: 10px;
+.inner_order {
+  padding: 20px;
+  width: 100%;
+  border-bottom: 2px solid #7e1414;
+}
+
+.title {
+  font-family: sans-serif;
+  font-size: 22px;
+  color: rgb(117, 68, 4);
+}
+
+.order_head {
+  padding: 10px 0;
+  border-bottom: 2px solid #e9c4c4d8;
+}
+
+.listItem {
+  width: 100%;
+}
+
+.orderitem {
+  width: 300px;
   padding: 10px;
+  width: calc(100px - 10px);
+}
+
+.orderitem img {
+  width: 100px;
+  height: 100px;
 }

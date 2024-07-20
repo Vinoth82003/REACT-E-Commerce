@@ -6,7 +6,7 @@
   width: 100vw;
   max-width: calc(100vw - 20px);
   height: calc(100vh - 20px);
-  background: #b99372ce;
+  background: #ffe6d0ce;
   z-index: 1000;
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
@@ -42,7 +42,7 @@
   top: 10px;
   width: 40px;
   height: 40px;
-  background: #dda15e;
+  background: #ffd5a5;
   border-radius: 50%;
   display: flex;
   align-items: center;

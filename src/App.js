@@ -169,8 +169,12 @@ function App() {
     all_items[0],
   ]);
   const [isOrder, setOrder] = useState(true);
-  const [orderItem, setOrderItem] = useState([all_items[0]]);
-  const [isAuth, setAuth] = useState(true);
+  const [orderItem, setOrderItem] = useState([
+    all_items[4],
+    all_items[2],
+    all_items[0],
+  ]);
+  const [isAuth, setAuth] = useState(false);
   const [viewContent, setViewContent] = useState(all_items[4]);
   // const [cartItems, setcartItems] = useState([]);
   const [isLiked, setLiked] = useState(false);
@@ -211,15 +215,15 @@ function App() {
         <appContext.Provider value={value}>
           <Header />
           <Body />
+          {/* {isOrder && <Order orderItem={orderItem} />} */}
           {/* <Footer /> */}
           {isCart && <Cart />}
           {isLiked && <Liked />}
           {isView && <View />}
-          {isOrder && <Order orderItem={orderItem} />}
         </appContext.Provider>
       ) : (
         <loginContext.Provider value={login}>
-          {isSignup ? <Signup /> : <Login />}
+          {isSignup ? <Signup login={login} /> : <Login />}
         </loginContext.Provider>
       )}
     </>

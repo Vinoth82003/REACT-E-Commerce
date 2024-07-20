@@ -27,10 +27,10 @@ const View = () => {
     <>
       <div className="view_page">
         <div className="inner_view">
-          <div className="close_view" onClick={handleViewClose}>
-            <div className="close_line left_cl"></div>
-            <div className="close_line right_cl"></div>
-          </div>
+          <span className="close_view" onClick={handleViewClose}>
+            <span className="close_line left_cl"></span>
+            <span className="close_line right_cl"></span>
+          </span>
           <div className="top_lft">
             <div className="image">
               <img src={viewContent.img} alt="view product" />
